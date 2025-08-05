@@ -6,14 +6,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image/image.dart' as img;
 
-class MangoLeafDiseaseDetectionScreen extends StatefulWidget {
-  const MangoLeafDiseaseDetectionScreen({super.key});
+class MangoScreen extends StatefulWidget {
+  const MangoScreen({super.key});
 
   @override
-  createState() => _MangoLeafDiseaseDetectionScreenState();
+  State<MangoScreen> createState()  => _MangoLeafDiseaseDetectionScreenState();
 }
 
-class _MangoLeafDiseaseDetectionScreenState extends State<MangoLeafDiseaseDetectionScreen> {
+class _MangoLeafDiseaseDetectionScreenState extends State<MangoScreen> {
   File? filePath;
   String label = "No Image Selected";
   double confidence = 0.0;
@@ -36,7 +36,7 @@ class _MangoLeafDiseaseDetectionScreenState extends State<MangoLeafDiseaseDetect
     try {
       await Tflite.loadModel(
         model: "assets/mangoLeafDiseaseUpdate.tflite",
-        labels: "assets/lables.txt",
+        labels: "assets/lables_mango.txt",
         numThreads: 2,  // Increased for better performance
         isAsset: true,
         useGpuDelegate: false,
@@ -307,7 +307,7 @@ class _MangoLeafDiseaseDetectionScreenState extends State<MangoLeafDiseaseDetect
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+            floatingActionButton: FloatingActionButton(
         onPressed:(){
           Navigator.pop(context); 
         },
