@@ -1,8 +1,8 @@
 Anthracnose
-Bacterial Canker
-Cutting Weevil
-Die Back
-Gall Midge
+Bacterial_Canker
+Cutting_Weevil
+Die_Back
+Gall_Midge
 Healthy
-Powdery Mildew
-Sooty Mould
+Powdery_Mildew
+Sooty_Mould

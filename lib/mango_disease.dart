@@ -35,7 +35,7 @@ class _MangoLeafDiseaseDetectionScreenState extends State<MangoLeafDiseaseDetect
   Future<void> _loadModel() async {
     try {
       await Tflite.loadModel(
-        model: "assets/semi-supervised_mango_leaf_model.tflite",
+        model: "assets/mangoLeafDiseaseUpdate.tflite",
         labels: "assets/lables.txt",
         numThreads: 2,  // Increased for better performance
         isAsset: true,
@@ -306,6 +306,12 @@ class _MangoLeafDiseaseDetectionScreenState extends State<MangoLeafDiseaseDetect
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed:(){
+          Navigator.pop(context); 
+        },
+        child: const Icon(Icons.arrow_back, color: Colors.white, size: 30)
       ),
     );
   }
