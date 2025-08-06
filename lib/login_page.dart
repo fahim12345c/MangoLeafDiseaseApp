@@ -122,7 +122,6 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: Container(
@@ -147,7 +146,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
               child: Column(
                 children: [
                   // Header Section
-                  Container(
+                  SizedBox(
                     height: screenHeight * 0.35,
                     child: FadeTransition(
                       opacity: _fadeAnimation,
@@ -158,6 +157,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                           Container(
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
+                              // ignore: deprecated_member_use
                               color: Colors.white.withOpacity(0.2),
                               shape: BoxShape.circle,
                             ),
@@ -182,6 +182,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             'Disease Detection Made Easy',
                             style: TextStyle(
                               fontSize: 14,
+                              // ignore: deprecated_member_use
                               color: Colors.white.withOpacity(0.9),
                               fontWeight: FontWeight.w300,
                             ),

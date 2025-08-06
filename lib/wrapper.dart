@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mango_app/home_page.dart';
 import 'package:mango_app/login_page.dart';
-import 'package:mango_app/verify_page.dart';
 
 class Wrapper extends StatefulWidget {
   const Wrapper({super.key});
