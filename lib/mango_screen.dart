@@ -50,7 +50,7 @@ class _MangoLeafDiseaseDetectionScreenState extends State<MangoScreen>
     ],
     'color': const Color(0xFFE74C3C)
   },
-  'Bacterial_Canker ': {
+  'Bacterial_Canker': {
     'description': 'পাতা ও কাণ্ডে প্রভাব ফেলে এমন একটি ব্যাকটেরিয়াজনিত রোগ।',
     'symptoms': [
       'পাতায় পানিভেজা দাগ',
