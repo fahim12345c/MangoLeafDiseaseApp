@@ -392,7 +392,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 delegate: SliverChildListDelegate([
                   _buildDiseaseCard(
                     title: 'Mango Diseases',
-                    subtitle: 'Detect anthracnose, black spot & more',
+                    subtitle: 'Detect anthracnose, Bacterial Canker & more',
                     icon: Icons.local_florist,
                     color: Colors.orange.shade600,
                     lightColor: Colors.orange.shade50,
@@ -408,7 +408,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                   _buildDiseaseCard(
                     title: 'Tomato Diseases',
-                    subtitle: 'Identify blight, mosaic virus & leaf curl',
+                    subtitle: 'Identify Bacterial spot, Earlyblight & Leaf Mold & more',
                     icon: Icons.local_pizza,
                     color: Colors.red.shade600,
                     lightColor: Colors.red.shade50,
