@@ -357,35 +357,38 @@ Future<void> _runModelOnImage(String imagePath) async {
 
 
   Future<List<dynamic>?> _runModelWithManualPreprocessing(String imagePath) async {
-    try {
-      final imageBytes = await File(imagePath).readAsBytes();
-      final decodedImage = img.decodeImage(imageBytes);
-      if (decodedImage == null) return null;
+  try {
+    final imageBytes = await File(imagePath).readAsBytes();
+    final decodedImage = img.decodeImage(imageBytes);
+    if (decodedImage == null) return null;
 
-      final resizedImage = img.copyResize(decodedImage, width: 224, height: 224);
-      
-      var inputBytes = Uint8List(1 * 224 * 224 * 3);
-      var pixelIndex = 0;
-      
-      for (var y = 0; y < resizedImage.height; y++) {
-        for (var x = 0; x < resizedImage.width; x++) {
-          final pixel = resizedImage.getPixel(x, y);
-          inputBytes[pixelIndex++] = img.getRed(pixel);
-          inputBytes[pixelIndex++] = img.getGreen(pixel);
-          inputBytes[pixelIndex++] = img.getBlue(pixel);
-        }
+    // Resize to 224x224
+    final resizedImage = img.copyResize(decodedImage, width: 224, height: 224);
+
+    // Create a Float32List buffer
+    final input = Float32List(1 * 224 * 224 * 3);
+    int pixelIndex = 0;
+
+    for (var y = 0; y < resizedImage.height; y++) {
+      for (var x = 0; x < resizedImage.width; x++) {
+        final pixel = resizedImage.getPixel(x, y);
+        // Normalize to 0..1
+        input[pixelIndex++] = img.getRed(pixel) / 255.0;
+        input[pixelIndex++] = img.getGreen(pixel) / 255.0;
+        input[pixelIndex++] = img.getBlue(pixel) / 255.0;
       }
-
-      return await Tflite.runModelOnBinary(
-        binary: inputBytes,
-        numResults: 3,
-        threshold: 0.4,
-      );
-    } catch (e) {
-      print("Manual preprocessing error: $e");
-      return null;
     }
+
+    return await Tflite.runModelOnBinary(
+      binary: input.buffer.asUint8List(), // Pass as bytes
+      numResults: 3,
+      threshold: 0.4,
+    );
+  } catch (e) {
+    print("Manual preprocessing error: $e");
+    return null;
   }
+}
 
   Future<void> _pickImage(ImageSource source) async {
     if (isProcessing) return;
