@@ -79,36 +79,6 @@ Run the application
 
 bash
 flutter run
-📁 Project Structure
-text
-mango_app/
-├── android/
-├── ios/
-├── lib/
-│   ├── main.dart
-│   ├── core/
-│   │   ├── constants/
-│   │   ├── themes/
-│   │   └── utils/
-│   ├── features/
-│   │   ├── auth/
-│   │   │   ├── presentation/pages/
-│   │   │   └── domain/
-│   │   ├── classification/
-│   │   │   ├── presentation/pages/
-│   │   │   └── domain/
-│   │   └── profile/
-│   │       ├── presentation/pages/
-│   │       └── domain/
-│   ├── shared/
-│   │   ├── widgets/
-│   │   └── services/
-│   └── assets/
-│       ├── models/
-│       ├── images/
-│       └── icons/
-├── pubspec.yaml
-└── README.md
 🔧 Configuration
 Firebase Configuration
 Update Firebase configuration in lib/core/constants/firebase_constants.dart
