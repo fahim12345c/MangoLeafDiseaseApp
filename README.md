@@ -52,10 +52,6 @@ Android Studio/VSCode
 Setup Instructions
 Clone the repository
 
-bash
-git clone https://github.com/yourusername/mango-disease-classifier.git
-cd mango-disease-classifier
-Install dependencies
 
 bash
 flutter pub get
